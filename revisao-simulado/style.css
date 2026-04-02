@@ -1,0 +1,279 @@
+/* ===================================================== */
+/* ===== RESET BÁSICO (zera margens do navegador) ====== */
+/* ===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================================================== */
+/* ===== CONFIGURAÇÃO GLOBAL DO BODY =================== */
+/* ===================================================== */
+body {
+  background-color: #0d1117;
+  background-image: url("img/img2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* ===================================================== */
+/* ===== CONTAINER PRINCIPAL (TOPO FIXO AO ROLAR) ===== */
+/* ===================================================== */
+.quiz-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+.quiz-container h1 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+
+/* ===================================================== */
+/* ===== BARRA DE PROGRESSO ============================ */
+/* ===================================================== */
+.progresso-container {
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+#barra-progresso {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2ea043, #3fb950);
+  transition: width 0.3s;
+}
+
+/* Texto de status */
+#status {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* ===================================================== */
+/* ===== ÁREA DO QUIZ ================================== */
+/* ===================================================== */
+.quiz {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* ===================================================== */
+/* ===== PERGUNTAS ===================================== */
+/* ===================================================== */
+.pergunta {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.pergunta p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.pergunta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+.pergunta + .pergunta {
+  margin-top: 10px;
+}
+
+.pergunta.respondida {
+  opacity: 0.8;
+}
+
+/* ===================================================== */
+/* ===== BOTÕES ======================================== */
+/* ===================================================== */
+button {
+  margin: 5px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+}
+
+/* BOTÃO V (verde) */
+button:nth-child(2) {
+  background: #2ea043;
+}
+
+button:nth-child(2):hover {
+  background: #3fb950;
+  transform: scale(1.05);
+}
+
+/* BOTÃO F (vermelho) */
+button:nth-child(3) {
+  background: #da3633;
+}
+
+button:nth-child(3):hover {
+  background: #f85149;
+  transform: scale(1.05);
+}
+
+/* BOTÃO MOSTRAR RESPOSTA (azul) */
+button.btn-mostrar-resposta {
+  background: #1e90ff;
+  color: white;
+}
+
+button.btn-mostrar-resposta:hover {
+  background: #3399ff;
+  transform: scale(1.05);
+}
+
+/* BOTÃO DESABILITADO */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===================================================== */
+/* /* ===================================================== */
+/* ===== FEEDBACK (ACERTO / ERRO) ====================== */
+/* ===================================================== */
+.feedback {
+  margin-top: 10px;
+  font-size: 16px;
+  opacity: 0;
+  transition: 0.3s;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px; /* Bordas arredondadas */
+  width: 100%;  /* Faz com que a caixa de feedback ocupe toda a largura */
+  box-sizing: border-box; /* Garante que padding não quebre o layout */
+  min-height: 40px; /* Define uma altura mínima para a caixa */
+  max-height: 200px; /* Define uma altura máxima caso o texto seja muito longo */
+  overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo exceder o limite */
+  white-space: normal; /* Permite que o texto quebre e ocupe várias linhas */
+  word-wrap: break-word; /* Garante que as palavras grandes quebrem para a linha seguinte */
+}
+
+/* Quando a resposta for correta */
+.correto {
+  opacity: 1;
+  color: #28a745; /* Verde mais claro para aumentar o contraste */
+  background-color: #e9f7e2; /* Fundo suave e claro */
+  border: 1px solid #28a745; /* Borda verde para destacar ainda mais */
+  box-shadow: 0 2px 10px rgba(40, 167, 69, 0.5); /* Sombra suave */
+}
+
+/* Quando a resposta for errada */
+.errado {
+  opacity: 1;
+  color: #dc3545; /* Vermelho mais forte para erro */
+  background-color: #f8d7da; /* Fundo suave e claro para erro */
+  border: 1px solid #dc3545; /* Borda vermelha */
+  box-shadow: 0 2px 10px rgba(220, 53, 69, 0.5); /* Sombra suave para erro */
+}
+
+/* ===================================================== */
+/* ===== RESULTADO FINAL =============================== */
+/* ===================================================== */
+#resultado-final {
+  margin: 40px auto;
+  padding: 25px;
+  width: 80%;
+  max-width: 600px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+  scroll-margin-top: 120px; /* evita que fique atrás do sticky */
+}
+
+#resultado-final h2 {
+  margin-bottom: 10px;
+}
+
+#nota {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* ===================================================== */
+/* ===== BOTÃO REVISÃO ================================= */
+/* ===================================================== */
+.btn-revisao {
+  display: none;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.btn-revisao:hover {
+  background-color: #45a049;
+}
+
+/* ===================================================== */
+/* ===== AJUSTES ADICIONAIS ============================ */
+/* ===================================================== */
+
+/* Feedback mais destacado */
+.feedback {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Status */
+#status {
+  margin-bottom: 15px;
+}
+
+/* Barra de progresso fallback */
+.progresso-container {
+  width: 100%;
+  background-color: #ddd;
+  height: 10px;
+  margin-bottom: 15px;
+}
+
+#barra-progresso {
+  height: 10px;
+  width: 0%;
+  background-color: #4CAF50;
+}

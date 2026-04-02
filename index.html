@@ -1,0 +1,346 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="style.css">
+
+   
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Simulado V ou F</h1>
+
+    <!--BARRA DE PROGRESSO -->
+    <div class="progresso-container">
+        <div id="barra-progresso"></div>
+    </div>
+
+    <!-- STATUS -->
+    <p id="status">0 de 0 respondidas</p>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+
+    <!-- ===== PERGUNTAS ===== -->
+    <div class="pergunta" data-resposta="true">
+        <p>1. Variável é um espaço reservado na memória do computador 
+        para armazenar valores que podem ser manipulados ao longo da execução de um programa.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>2. Em programação, os operadores podem ser classificados em aritméticos, 
+        relacionais e lógicos, de acordo com a função que desempenham.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>3. A estrutura básica de um algoritmo é composta por 
+        entrada, saída e processamento de dados.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>4. Uma variável em programação é um espaço na memória 
+        que pode armazenar valores que podem ser alterados 
+        durante a execução do programa, enquanto 
+        uma constante é um espaço na memória 
+        que armazena um valor fixo, 
+        que não pode ser modificado após a sua definição.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>5. Um algoritmo é uma sequência de passos 
+        ou instruções que são seguidos para resolver 
+        um problema ou realizar uma tarefa específica. 
+        Em programação, um algoritmo define a lógica 
+        para que o computador realize uma tarefa, 
+        como fazer cálculos, organizar dados 
+        ou interagir com o usuário.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>6. "Ler uma variável" significa exibir 
+        o valor armazenado nela na tela para o usuário.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>7. Os tipos de dados são:  inteiro, real, 
+        caractere e booleano. 
+        São usados, respectivamente, 
+        para armazenar números inteiros, 
+        números reais e uma sequência de caracteres 
+        e valores lógicos.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>8. Operadores relacionais são, respectivamente: 
+        == (igual), <> (diferente), >= (maior ou igual).</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>9. Para exibir uma mensagem ao usuário, 
+        usamos o comando escreva(mensagem).</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>10. Os operadores lógicos &&, OU e ! são usados da seguinte forma:
+
+        && (e): Exige que todos os valores sejam verdadeiros 
+        para que a expressão seja verdadeira.
+        OU (ou ||): Apenas um verdadeiro é 
+        necessário para que a expressão seja verdadeira.
+        ! (não): Inverte o valor lógico, 
+        ou seja, transforma verdadeiro em falso e falso em verdadeiro.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>11. No comando condicional se...senão, 
+        o senão é sempre executado quando a 
+        condição do se for verdadeira.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>12. Toda vez que abrimos uma condição “se”, 
+        precisamos fechá-la com “fimse” (em VisualG).</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>13. Se a condição do se nunca for verdadeira 
+        e não houver um senão, o programa apresentará erro.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>14. A estrutura condicional 
+        se...então...senão é utilizada 
+        dentro de um algoritmo
+        para executar diferentes blocos 
+        de código dependendo de uma condição.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>15. A maneira correta de escrever 
+        um se de múltiplas condições no VisualG é :
+
+Se (x > 5 e x < 10) então.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>16. A alternativa que representa corretamente 
+        um se...então...senão completo no VisualG é:
+
+Se idade >= 18 então escreva("Maior de idade") 
+senao escreva("Menor de idade") fimse.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>17. Em VisualG, quando uma condição "se" for falsa, 
+        a execução seguirá para o bloco "senão".</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>18. A hierarquia das operações segue a regra PEMDAS, 
+        que define a ordem de avaliação dos operadores. 
+        P: Parênteses
+        E: Expoentes (ou Potências)
+        MD: Multiplicação e Divisão (da esquerda para a direita)
+        AS: Adição e Subtração (da esquerda para a direita).</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>19. Em uma estrutura se do VisualG, o fimse não é 
+        necessário para fechar a estrutura condicional 
+        se não houver um senão.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>20. Sequência lógica é o conjunto de 
+        passos organizados em ordem aleatória, 
+        onde a execução de cada passo depende 
+        do resultado do anterior.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>21. O operador ! (NOT) inverte o valor lógico 
+        de uma condição, ou seja, transforma 
+        verdadeiro em falso e falso em verdadeiro. 
+        Já o operador || (OU) retorna 
+        verdadeiro se pelo menos uma 
+        das condições for verdadeira.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>22. Operadores relacionais comparam strings 
+        de caracteres e números, retornando sempre true
+        verdadeiro ou falso, enquanto os operadores 
+        lógicos realizam operações entre valores 
+        booleanos, combinando condições 
+        verdadeiras ou falsas.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>23. Se o comando "se" for utilizado sem um "senão", 
+        o programa apresentará um erro.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>24. Em uma estrutura condicional se... então... senão... 
+        no VisuAlg, precisamos usar apenas um único fimse, 
+        independente de quantas condições ou variáveis 
+        existam dentro da estrutura.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>25. O operador mod %  retorna o 
+        resto da divisão entre dois números, 
+        enquanto o operador && (E lógico) 
+        retorna verdadeiro apenas se 
+        ambas as condições forem verdadeiras.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>26. Em muitas linguagens de programação, 
+        usamos a palavra const para definir uma constante. 
+        Usar constantes deixa o programa mais 
+        organizado e fácil de entender, 
+        porque podemos usar nomes claros 
+        em vez de escrever números diretamente no código.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>27. Sempre que utilizamos uma estrutura 
+        condicional se... então... fimse no VisuAlg, 
+        precisamos fechar a  condição com fimse para 
+        que o programa reconheça que a 
+        estrutura foi completada corretamente.</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>28. Analise a seguinte expressão, e diga se 
+        é verdadeiro ou falso.  
+
+        !(10 < 5) ou (5 + 5 == 10) e (6 * 2 == 12).</p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="true">
+        <p>29. Analise a seguinte expressão, e diga se 
+        é verdadeiro ou falso.
+        (3 * 5 == 15) and (20 / 5 == 4) ou 2 ** 3 == 8 </p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="pergunta" data-resposta="false">
+        <p>30. Analise a seguinte expressão, e diga se 
+        é verdadeiro ou falso.
+        (7 % 3) == 1 && (5 * 2) == 10 e (8 / 2) == 3 && (2 + 3) == 6 </p>
+        <button onclick="responder(this, true)" aria-label="Verdadeiro">V</button>
+        <button onclick="responder(this, false)" aria-label="Falso">F</button>
+        <p class="feedback"></p>
+    </div>
+
+</div>
+
+<!-- RESULTADO FINAL -->
+<div id="resultado-final" style="display:none;">
+    <h2>Resultado Final</h2>
+    <p id="nota"></p>
+    <!-- Botão para ir para a revisão -->
+    <a href="revisao-simulado/index.html" class="btn-revisao" id="btn-revisao">Revisar Simulado</a>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
+
+
