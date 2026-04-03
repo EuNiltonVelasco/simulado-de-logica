@@ -114,20 +114,18 @@ document.addEventListener("DOMContentLoaded", function () {
     resultadoFinal.style.display = "block";
     const notaFinal = (acertos / totalPerguntas) * 100;
 
-    let mensagem = "";
-    if (notaFinal === 100) {
-      mensagem = "🏆 Perfeito! Gabaritou!";
-      confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
-    } else if (notaFinal >= 80) {
-      mensagem = "🔥 Excelente! Mandou muito bem!";
-    } else if (notaFinal >= 70) {
-      mensagem = "🟢 Bom desempenho!";
-    } else if (notaFinal >= 50) {
-      mensagem = "🔵 Ok, pode melhorar!";
-    } else {
-      mensagem = "🔴 Atenção, revise o conteúdo!";
-    }
-
+   if (notaFinal >= 100) {
+    mensagem = "🏆 Perfeito! Gabaritou!";
+    confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+} else if (notaFinal >= 80) {
+    mensagem = "🔥 Excelente! Mandou muito bem!";
+} else if (notaFinal >= 70) {
+    mensagem = "🟢 Bom desempenho!";
+} else if (notaFinal >= 50) {
+    mensagem = "🔵 Ok, pode melhorar!";
+} else {
+    mensagem = "🔴 Atenção, revise o conteúdo!";
+}
     // Cor da nota
     if (notaFinal >= 70) notaElemento.style.color = "#00ff88";
     else if (notaFinal >= 50) notaElemento.style.color = "#4da6ff";
